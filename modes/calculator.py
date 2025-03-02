@@ -1,36 +1,32 @@
-import logic.calculator
+from logic import calculatorlogic
+
+
 def calculator():
     while True:
-        logic.calculator.operations()
-        operation = input("Calculator, type operation: ").strip()
-        if(operation == "q"):
+        calculatorlogic.operations()
+        operation = input("Calculator, type operation: ").strip().lower()
+
+        if operation == "q":
             break
-    
+
         match operation:
             case "+":
-                result = logic.calculator.addition()
-                logic.calculator.history(result)
+                result = calculatorlogic.addition()
+                calculatorlogic.history(result)
             case "-":
-                result = logic.calculator.substraction()
-                logic.calculator.history(result)
+                result = calculatorlogic.subtraction()
+                calculatorlogic.history(result)
             case "/":
-                try:
-                    result = logic.calculator.division()
-                    logic.calculator.history(result)
-                except ZeroDivisionError:
-                    print("Error you can't divide by zero")
-                    continue
+                result = calculatorlogic.division()
+                calculatorlogic.history(result)
             case "*":
-                result = logic.calculator.multiplication()
-                logic.calculator.history(result)
+                result = calculatorlogic.multiplication()
+                calculatorlogic.history(result)
             case "^":
-                result = logic.calculator.exponentiation()
-                logic.calculator.history(result)
+                result = calculatorlogic.exponentiation()
+                calculatorlogic.history(result)
             case "!":
-                result = logic.calculator.factorial()
-                logic.calculator.history(result)
+                result = calculatorlogic.factorial()
+                calculatorlogic.history(result)
             case _:
-                print('This command dose not exist, chose one from the list below')
-
-    
-    
+                print("This command doesn't exist, choose one from the list below")

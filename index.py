@@ -1,22 +1,23 @@
-import modes.calculator 
-import modes.filebrowser 
+from modes import calculator 
+from modes import filebrowser 
+
+
 while True:
     print("""
-    Starting operations:
-          calc = go to calculator
-          files = go to file browser
-          quit = stop the program
-          help = show operations
+        Starting operations:
+            calc = go to calculator
+            files = go to file browser
+            quit = stop the program
     """)
-    a = input("index, type: ")
-    if(a == "quit"):
-        break
-    match a:
-        case "calc":
-            modes.calculator.calculator()
-        case "files":
-            modes.filebrowser.fileBrowser()
-        case _:
-            print('This command dosnt exist, chose one from the list below')
 
-    
+    operation = input("index, type in operation: ").strip().lower()
+
+    if(operation == "quit"):
+        break
+    match operation:
+        case "calc":
+            calculator.calculator()
+        case "files":
+            filebrowser.fileBrowser()
+        case _:
+            print("This command doesn't exist, choose one from the list below")
